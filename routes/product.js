@@ -36,7 +36,7 @@ router.post('/', [upload.single('image'), authentication.checkLogin], async func
   let { body, file } = req;
   let image = '';
   if (file) {
-    image = `http://192.168.1.29:3000/images/${file.filename}`;
+    image = `https://tainodejs.herokuapp.com/images/${file.filename}`;
   }
   body = { ...body, image };
   await productController.insert(body);
