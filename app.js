@@ -18,7 +18,7 @@ require('./components/products/model')
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/product');
 var apiRouter = require('./routes/api');
-
+var categoryRouter = require('./routes/category');
 
 
 
@@ -56,7 +56,7 @@ mongoose.connect('mongodb+srv://admin:tai1892001@cluster0.wv2mc.mongodb.net/VoTh
 app.use('/', indexRouter);
 app.use('/san-pham', productRouter);
 app.use('/api', apiRouter);
-
+app.use('/danh-muc', categoryRouter);
 
 
 

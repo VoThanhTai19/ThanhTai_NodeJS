@@ -14,9 +14,10 @@ router.get('/dang-nhap', [authentication.checkLogin], function (req, res, next) 
   res.render('login');
 });
 
+
 /**
  * page: login
- * http://localhost:3000/dang-nhap
+ * http://localhost:3000/dang-nhap 
  * method: post
  */
 router.post('/dang-nhap', async function (req, res, next) {

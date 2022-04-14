@@ -6,7 +6,7 @@ const categoryController = require('../components/categories/controller');
 
 const upload = require('../middle/upload');
 
-const authentication = require('../middle/authentication');
+const authentication = require('../middle/authentication'); 
 
 /**
  * page: product
@@ -55,7 +55,6 @@ router.post('/', [upload.single('image'), authentication.checkLogin], async func
 router.get('/insert', [authentication.checkLogin], async function (req, res, next) {
   // hiển thị trang thêm mới
   const categories = await categoryController.getCategories();
-  console.log(categories)
   res.render('product_insert', { categories: categories });
 });
 

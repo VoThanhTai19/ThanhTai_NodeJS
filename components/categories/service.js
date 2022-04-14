@@ -6,6 +6,25 @@ exports.getCategories = async () => {
     return await categoryModel.find();
 }
 
+exports.getById = async (id) => {
+    const categories = await categoryModel.findById(id);
+    return categories;
+}
+
+exports.insert = async (category) => {
+    const p = new categoryModel(category);
+    return p;
+}
+
+exports.update = async (id, category) => {
+    await categoryModel.findByIdAndUpdate(id, category);
+}
+
+exports.delete = async (id) => {
+    await categoryModel.findByIdAndDelete(id);
+}
+
+
 
 
 
