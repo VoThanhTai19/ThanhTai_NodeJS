@@ -20,12 +20,22 @@ router.get('/insert', [authentication.checkLogin], async function (req, res, nex
   res.render('category_insert');
 });
 
+router.post('/:id/edit', [authentication.checkLogin], async function (req, res, next) {
+  let { id, body } = req;
+  await categoryController.update(id, body);
+  res.redirect('/danh-muc');
+})
+
 router.get('/:id/edit', [authentication.checkLogin], async function (req, res, next){
   const { id } = req.params;
   const category = await categoryController.getById(id);
-  console.log(category);
   res.render('category', { category: category });
 });
 
+router.delete('./:id/delete', [authentication.checkLogin], async function (req, res, next) {
+  const { id } = req.params;
+  await categoryController.delete(id);
+  res.json( { result: true } )
+})
 
 module.exports = router;
