@@ -12,8 +12,8 @@ exports.getById = async (id) => {
 }
 
 exports.insert = async (category) => {
-    const p = new categoryModel(category);
-    return p;
+    const c = new categoryModel(category);
+    await c.save();
 }
 
 exports.update = async (id, category) => {
